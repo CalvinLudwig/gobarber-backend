@@ -1,17 +1,19 @@
-import express from 'express'
-import chalk from 'chalk'
-import routes from './routes'
+import 'reflect-metadata';
+import express from 'express';
+import chalk from 'chalk';
+import routes from './routes';
+import './database';
 
-const app = express()
-app.use(express.json())
-app.use(routes)
+const app = express();
+app.use(express.json());
+app.use(routes);
 
 app.listen(3333, () => {
   console.log(
-    chalk.bgGreen.black.bold(
+    chalk.bgGreen.white.bold(
       '                                                                  \n' +
-      '                    SERVER STARTED AT PORT 3333                   \n' +
-      '                                                                  '
-    )
-  )
-})
+        '                    SERVER STARTED AT PORT 3333                   \n' +
+        '                                                                  ',
+    ),
+  );
+});
