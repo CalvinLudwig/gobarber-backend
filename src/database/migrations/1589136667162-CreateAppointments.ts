@@ -24,7 +24,7 @@ export default class CreateAppointments1589136667162 implements MigrationInterfa
                         isNullable: false,
                     },
                     {
-                        name: 'create_at',
+                        name: 'created_at',
                         type: 'timestamp',
                         default: 'now()',
                     },
