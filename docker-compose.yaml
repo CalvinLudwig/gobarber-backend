@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+    gobarber-postgres:
+        image: postgres
+        environment:
+            POSTGRES_DB: gobarber
+            POSTGRES_PASSWORD: "qwe123"
+        ports:
+            - "15432:5432"
+        volumes:
+            - /home/calvin/gobarber/database:/var/lib/postgresql/data
+        networks:
+            - postgres-network
+
+    gobarber-pgadmin:
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: "bludwig.calvin@gmail.com"
+            PGADMIN_DEFAULT_PASSWORD: "qwe123"
+        ports:
+            - "16543:80"
+        depends_on:
+            - gobarber-postgres
+        networks:
+            - postgres-network
+
+networks:
+    postgres-network:
+        driver: bridge

@@ -9,11 +9,9 @@ app.use(express.json());
 app.use(routes);
 
 app.listen(3333, () => {
-  console.log(
-    chalk.bgGreen.white.bold(
-      '                                                                  \n' +
-        '                    SERVER STARTED AT PORT 3333                   \n' +
-        '                                                                  ',
-    ),
-  );
+    let msg = '                                                                  \n';
+    msg += '                    SERVER STARTED AT PORT 3333                   \n';
+    msg += '                                                                  \n';
+
+    console.log(chalk.bgGreen.white.bold(msg));
 });
